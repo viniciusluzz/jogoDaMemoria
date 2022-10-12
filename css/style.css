@@ -1,0 +1,348 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    background-color: #191919;
+    font-family: 'Righteous', sans-serif;
+}
+
+#container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#gameBoard{
+    position: absolute;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    transition: 2s;
+}
+
+.gameBoardStyle{
+    background-color: #FC2E20;
+    padding: 20px;
+    border: 10px solid #FDB750;
+    border-radius: 80px;
+}
+
+.card {
+    position: relative;
+    width: 120px;
+    height: 120px;
+
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 60px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5)
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#dashboard {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    grid-row-gap: 20px;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7) 
+}
+
+.text{
+    font-size: 8rem;
+    width: 75%;
+}
+
+#gameOver {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    font-size: 8rem;
+    color: white;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8) 
+}
+
+.restart {
+    background-color: #FC2E20;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 30px;
+    font-size: 2.5rem;
+    font-family: 'Righteous', sans-serif;
+}
+
+@keyframes restart{
+    from{padding: 30px; font-size: 2.5rem;}
+
+    to{padding: 32px; font-size: 2.6rem;}
+}
+
+.restart:hover{
+    cursor: pointer;
+    animation-name: restart;
+    animation-duration: 0.1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+.restart:active{
+    background-color:  darkred;
+}
+
+@media screen and (max-width:1440px) {
+
+    #gameBoard{
+        gap: 20px;
+    }
+    
+    .gameBoardStyle{
+        padding: 20px;
+        border: 10px solid #FDB750;
+        border-radius: 80px;
+    }
+    
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .icon {
+        border-radius: 60px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5)
+    }
+
+    #dashboard {
+        grid-row-gap: 20px;
+    }
+
+    .text{
+        font-size: 6rem;
+        width: 70%;
+    }
+
+    @keyframes restart{
+        from{padding: 30px; font-size: 2.5rem;}
+    
+        to{padding: 32px; font-size: 2.6rem;}
+    }    
+
+    .restart {
+        border-radius: 50px;
+        padding: 30px;
+        font-size: 2.5rem;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+
+    #gameBoard{
+        gap: 20px;
+    }
+    
+    .gameBoardStyle{
+        padding: 20px;
+        border: 10px solid #FDB750;
+        border-radius: 80px;
+    }
+    
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .icon {
+        border-radius: 60px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5)
+    }
+
+    #dashboard {
+        grid-row-gap: 20px;
+    }
+
+    .text{
+        font-size: 5rem;
+        width: 80%;
+    }
+
+    @keyframes restart{
+        from{padding: 25px; font-size: 2.5rem;}
+    
+        to{padding: 27px; font-size: 2.6rem;}
+    }    
+
+    .restart {
+        border-radius: 50px;
+        padding: 25px;
+        font-size: 2.5rem;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+
+    #gameBoard{
+        gap: 20px;
+    }
+    
+    .gameBoardStyle{
+        padding: 20px;
+        border: 10px solid #FDB750;
+        border-radius: 80px;
+    }
+    
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .icon {
+        border-radius: 60px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5)
+    }
+
+    #dashboard {
+        grid-row-gap: 20px;
+    }
+
+    .text{
+        font-size: 4rem;
+        width: 85%;
+    }
+
+    @keyframes restart{
+        from{padding: 20px; font-size: 2.5rem;}
+    
+        to{padding: 22px; font-size: 2.6rem;}
+    }    
+
+    .restart {
+        border-radius: 50px;
+        padding: 20px;
+        font-size: 2.5rem;
+    }
+
+}
+
+@media screen and (max-width:550px) {
+
+    #gameBoard{
+        gap: 5px;
+    }
+    
+    .gameBoardStyle{
+        padding: 8px;
+        border: 7px solid #FDB750;
+        border-radius: 50px;
+    }
+    
+    .card {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .icon {
+        border-radius: 60px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5)
+    }
+
+    #dashboard {
+        grid-row-gap: 25px;
+    }
+
+    .text{
+        font-size: 3rem;
+        width: 85%;
+    }
+
+    @keyframes restart{
+        from{padding: 15px; font-size: 2rem;}
+    
+        to{padding: 17px; font-size: 2.1rem;}
+    }    
+
+    .restart {
+        border-radius: 50px;
+        padding: 15px;
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (max-width:350px) {
+
+    #gameBoard{
+        gap: 5px;
+    }
+    
+    .gameBoardStyle{
+        padding: 8px;
+        border: 7px solid #FDB750;
+        border-radius: 50px;
+    }
+    
+    .card {
+        width: 60px;
+        height: 60px;
+    }
+    
+}
